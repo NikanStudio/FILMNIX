@@ -1,0 +1,261 @@
+<!DOCTYPE html><html lang="fa" dir="rtl"><head>
+    <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>فیلم نیکس | FILM NIX - معرفی و مشخصات فیلم‌ها</title>
+
+<meta
+    name="description"
+    content="FILM NIX یک سایت برای معرفی فیلم‌ها و مشاهده مشخصات، سال ساخت، تعداد قسمت‌ها و بازیگران فیلم‌هاست."
+>
+
+<meta
+    name="keywords"
+    content="فیلم, معرفی فیلم, فیلم نیکس, FILM NIX, مشخصات فیلم, بازیگران, فیلم و سریال"
+>
+
+<meta name="author" content="FILM NIX">
+
+<meta name="robots" content="index, follow">
+
+<meta name="theme-color" content="#e50914">
+
+<link rel="canonical" href="https://nikanstudio.github.io/FILMNIX/">
+
+<!-- Open Graph -->
+<meta property="og:type" content="website">
+<meta property="og:title" content="فیلم نیکس | FILM NIX">
+<meta
+    property="og:description"
+    content="معرفی فیلم‌ها و مشاهده مشخصات آن‌ها در FILM NIX"
+>
+<meta property="og:url" content="https://nikanstudio.github.io/FILMNIX/">
+<meta property="og:site_name" content="FILM NIX">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="فیلم نیکس | FILM NIX">
+<meta
+    name="twitter:description"
+    content="سایت معرفی و مشاهده مشخصات فیلم‌ها"
+>
+
+<!-- Structured Data -->
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "FILM NIX",
+    "alternateName": "فیلم نیکس",
+    "description": "سایت معرفی فیلم‌ها و مشاهده مشخصات آن‌ها",
+    "url": "https://nikanstudio.github.io/FILMNIX/"
+}
+</script>
+
+<link rel="stylesheet" href="style.css">
+
+</head><body><header class="header"><div class="logo" aria-label="FILM NIX">
+    🎬 <span>FILM NIX</span>
+</div>
+
+<button
+    class="add-top-btn"
+    onclick="openMovieModal()"
+    aria-label="افزودن فیلم جدید"
+>
+    🎬 افزودن فیلم
+</button>
+
+</header><main><section class="hero" aria-labelledby="main-title">
+
+    <div class="hero-content">
+
+        <div class="hero-icon" aria-hidden="true">🎬</div>
+
+        <h1 id="main-title">FILM NIX</h1>
+
+        <h2>دنیای فیلم‌ها</h2>
+
+        <p>
+            فیلم‌ها را معرفی کنید و مشخصاتشان را با دیگران به اشتراک بگذارید.
+        </p>
+
+        <button
+            class="hero-btn"
+            onclick="openMovieModal()"
+        >
+            + معرفی فیلم
+        </button>
+
+    </div>
+
+</section>
+
+
+<section
+    class="movies-section"
+    aria-labelledby="movies-title"
+>
+
+    <div class="section-top">
+
+        <div>
+
+            <span class="small-title">FILM NIX</span>
+
+            <h2 id="movies-title">
+                فیلم‌ها
+                <span id="moviesCount">0</span>
+            </h2>
+
+        </div>
+
+        <input
+            id="searchInput"
+            type="search"
+            placeholder="جستجوی فیلم..."
+            aria-label="جستجوی فیلم"
+        >
+
+    </div>
+
+    <p id="searchMessage" aria-live="polite"></p>
+
+    <div
+        id="moviesGrid"
+        class="movies-grid"
+        aria-live="polite"
+    ></div>
+
+    <div
+        id="emptyState"
+        class="empty-state"
+    >
+
+        <div aria-hidden="true">🎬</div>
+
+        <h3>هنوز فیلمی ثبت نشده</h3>
+
+        <p>اولین فیلم را معرفی کنید.</p>
+
+        <button onclick="openMovieModal()">
+            + افزودن فیلم
+        </button>
+
+    </div>
+
+</section>
+
+</main><!-- Movie Modal --><div
+    id="movieModal"
+    class="modal"
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="movieModalTitle"
+><div class="modal-box">
+
+    <button
+        class="modal-close"
+        onclick="closeMovieModal()"
+        aria-label="بستن"
+    >
+        ×
+    </button>
+
+    <div class="modal-title">
+
+        <div
+            class="modal-icon"
+            aria-hidden="true"
+        >
+            🎬
+        </div>
+
+        <h2 id="movieModalTitle">
+            معرفی فیلم
+        </h2>
+
+        <p>
+            مشخصات فیلم را وارد کنید.
+        </p>
+
+    </div>
+
+
+    <form id="movieForm">
+
+        <label for="movieTitle">
+            نام فیلم
+        </label>
+
+        <input
+            id="movieTitle"
+            type="text"
+            placeholder="مثلاً Inception"
+            autocomplete="off"
+            required
+        >
+
+
+        <label for="movieImage">
+            پوستر فیلم
+        </label>
+
+        <div class="poster-upload">
+
+            <input
+                id="movieImage"
+                type="file"
+                accept="image/*"
+            >
+
+            <label
+                for="movieImage"
+                class="upload-box"
+            >
+
+                <span id="uploadIcon">
+                    🖼️
+                </span>
+
+                <strong id="uploadText">
+                    انتخاب پوستر
+                </strong>
+
+                <small>
+                    JPG / PNG / WEBP
+                </small>
+
+            </label>
+
+        </div>
+
+
+        <div
+            id="imagePreview"
+            class="image-preview"
+        ></div>
+
+
+        <label for="movieDescription">
+            مشخصات فیلم
+        </label>
+
+        <textarea
+            id="movieDescription"
+            placeholder="سال و تعداد قسمت ، و بازیگران را در اینجا وارد کنید"
+            required
+        ></textarea>
+
+
+        <button
+            type="submit"
+            class="submit-movie"
+        >
+            🎬 ثبت فیلم
+        </button>
+
+    </form>
+
+</div>
+
+</div><!-- Supabase --><script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script src="script.js"></script></body></html>q
